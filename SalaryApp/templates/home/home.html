@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Salary Prediction</title>
+    <style>
+        body{
+            background-image: url("cool-background.png");
+        }
+    </style>
+</head>
+<body>
+    <center>
+        <h2>Salary Prediction Web Application</h2>
+        <form action="{% url 'mysalary' %}" method="post">
+            {% csrf_token %}
+            <input type="number" name="year" id="" placeholder="Enter years" required>
+            <input type="submit" value="Predict">
+        </form>
+        {% if salary %}
+        <h4>The predicted Salary is {{ salary }}</h4>
+        {% endif %}
+    </center>
+</body>
+</html>
